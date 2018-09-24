@@ -6,9 +6,9 @@
 
 {% block content %}
   <form method="post">
-    <label for="title">Course</label>
+    <label for="title">Course Code (e.g. COMP-360)</label>
     <input name="title" id="title" value="{{ request.form['title'] or post['title'] }}" required>
-    <label for="body">Contact Method(s)</label>
+    <label for="body">Course Information in Following Format: term,phone-number (e.g. fall 2017,123-123-4567)</label>
     <textarea name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
     <input type="submit" value="Save">
   </form>
