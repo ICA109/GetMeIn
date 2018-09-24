@@ -5,6 +5,7 @@ from werkzeug.exceptions import abort
 
 from flaskr.auth import login_required
 from flaskr.db import get_db
+from flaskr.query import check_for_updates
 
 bp = Blueprint('blog', __name__)
 
@@ -18,6 +19,7 @@ def index():
         ' FROM post p JOIN user u ON p.author_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
+    check_for_updates(posts)
     return render_template('blog/index.html', posts=posts)
 
 
