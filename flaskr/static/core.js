@@ -1,15 +1,3 @@
 $(document).ready(function() {
-
-    console.log("hi");
-
-
-
-
-
-
-
-
-
-
-
+    console.log("jQuery successfully loaded.");
 });
