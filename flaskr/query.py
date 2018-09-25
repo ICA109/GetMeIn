@@ -21,19 +21,33 @@ def check_for_updates(posts):
     # page = requests.get('http://econpy.pythonanywhere.com/ex/001.html')
     # time.sleep(3)
 
+    '''
     page_content = page.content
     soup = BeautifulSoup(page_content, 'html.parser')
     class_space = soup.find_all("span", "seatText")
     print(soup.prettify())
     print(class_space)
+    '''
+    from bs4 import BeautifulSoup
+    from selenium import webdriver
+
+    url1a = url
+    browser = webdriver.PhantomJS()
+    browser.get(url1a)
+    html = browser.page_source
+    soup = BeautifulSoup(html, 'lxml')
+    a = soup.find_all("span", "seatText")
+    print(a)
+
+
 
     try:
         url2 = "https://horizon.mcgill.ca/pban1/bwckschd.p_disp_detail_sched?term_in=201901&crn_in=16181&search_mode_in="
         with urllib.request.urlopen(url2) as response:
             # time.sleep(3)
-            su = BeautifulSoup(response.read())
+            su = BeautifulSoup(response.read(), 'lxml')
             cs = su.find_all("td", "dddefault")
-            print(cs)
+            # print(cs)
 
     except urllib.request.HTTPError as e:
         if e.code == 404:
