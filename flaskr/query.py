@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
+import smtplib
 
 
 def check_for_updates(posts):
