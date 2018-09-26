@@ -10,7 +10,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 
 CELERYBEAT_SCHEDULE = {
     'test-celery': {
-        'task': 'app.tasks.test.print_hello',
+        'task': 'refresh.batch_query',
         # Every minute
         'schedule': crontab(minute="*"),
     }
