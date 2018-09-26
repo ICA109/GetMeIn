@@ -1,7 +1,7 @@
 from celery import Celery
 import requests
 
-app = Celery('celery_blog', broker='redis://localhost:6379/0')
+app = Celery('refresh', broker='redis://localhost:6379/0')
 
 
 @app.task
