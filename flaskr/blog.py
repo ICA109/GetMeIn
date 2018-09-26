@@ -5,8 +5,8 @@ from werkzeug.exceptions import abort
 
 from flaskr.auth import login_required
 from flaskr.db import get_db
-from flaskr.query import check_for_updates
-from refresh import func
+# from flaskr.query import check_for_updates
+from refresh import batch_query
 
 bp = Blueprint('blog', __name__)
 
@@ -21,7 +21,8 @@ def index():
         ' ORDER BY created DESC'
     ).fetchall()
     # check_for_updates(posts)
-    func(["http://google.com", "https://twitter.com", "https://alexa.com"])
+    # func(["http://google.com", "https://twitter.com", "https://alexa.com"])
+    batch_query(posts)
     return render_template('blog/index.html', posts=posts)
 
 
