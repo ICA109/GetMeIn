@@ -10,6 +10,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import requests
+from flaskr.db import get_db
 
 import celery_config
 # configuration
@@ -28,7 +29,14 @@ def fetch_url(url):
     print(resp.status_code)
 
 @app.task
-def batch_query(posts):
+def batch_query():
+    db = get_db()
+    posts = db.execute(
+        'SELECT p.id, title, body, created, author_id, username'
+        ' FROM post p JOIN user u ON p.author_id = u.id'
+        ' ORDER BY created DESC'
+    ).fetchall()
+
     course_list_and_info = []
 
     for post in posts:
