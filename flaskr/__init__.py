@@ -4,8 +4,6 @@ from celery import Celery
 
 import os
 
-app = Flask(__name__)
-
 
 def create_app(test_config=None):
     """Create and configure an instance of the Flask application."""
@@ -51,11 +49,13 @@ def create_app(test_config=None):
 
     # for celery
     # app2 = Flask(__name__)
+    ''''
     app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
     app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
 
     celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
     celery.conf.update(app.config)
+    '''
 
     return app
 
