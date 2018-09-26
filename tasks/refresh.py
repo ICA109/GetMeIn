@@ -1,3 +1,7 @@
+"""
+primary driver for celery
+"""
+
 from celery import Celery
 import requests
 
