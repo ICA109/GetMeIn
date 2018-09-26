@@ -5,7 +5,7 @@ primary driver for celery
 from celery import Celery
 import requests
 
-app = Celery('refresh', broker='redis://localhost:6379/0')
+app = Celery('refresh', broker='redis://localhost:6379/0', include=['flaskr.blog'])
 
 
 @app.task
