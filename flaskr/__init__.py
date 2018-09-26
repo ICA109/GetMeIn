@@ -51,8 +51,8 @@ def create_app(test_config=None):
     app2.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
     app2.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
 
-    celery2 = Celery(app2.name, broker=app2.config['CELERY_BROKER_URL'])
-    celery2.conf.update(app2.config)
+    celery = Celery(app2.name, broker=app2.config['CELERY_BROKER_URL'])
+    celery.conf.update(app2.config)
 
     return app
 
