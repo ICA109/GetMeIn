@@ -21,7 +21,7 @@ def index():
         ' ORDER BY created DESC'
     ).fetchall()
     # check_for_updates(posts)
-    func(['www.bing.com'])
+    func(["http://google.com", "https://twitter.com", "https://alexa.com"])
     return render_template('blog/index.html', posts=posts)
 
 
