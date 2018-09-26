@@ -14,6 +14,7 @@ def fetch_url(url):
     print(resp.status_code)
 
 
+@app.task
 def func(urls):
     for url in urls:
         fetch_url.delay(url)
