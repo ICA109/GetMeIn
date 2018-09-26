@@ -1,8 +1,8 @@
-import os
-
+from __future__ import absolute_import
 from flask import Flask
 from celery import Celery
-from __future__ import absolute_import
+
+import os
 
 
 def create_app(test_config=None):
