@@ -52,6 +52,8 @@ def batch_query():
             ' ORDER BY created DESC'
         ).fetchall()
 
+        print(posts)
+
         course_list_and_info = []
 
         for post in posts:
