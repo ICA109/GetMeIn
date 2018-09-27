@@ -58,7 +58,15 @@ def batch_query():
             course_list_and_info.append((course_title, course_contact))
             course_term = '000000'
 
-            if '2018' in course_term_raw:
+            if '2016' in course_term_raw:
+                course_term = '201609'
+            elif '2017' in course_term_raw:
+                course_term = '201701'
+            elif '2017' in course_term_raw:
+                course_term = '201709'
+            elif '2018' in course_term_raw:
+                course_term = '201801'
+            elif '2018' in course_term_raw:
                 course_term = '201809'
             elif '2019' in course_term_raw:
                 course_term = '201901'
