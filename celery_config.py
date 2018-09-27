@@ -12,6 +12,6 @@ CELERYBEAT_SCHEDULE = {
     'test-celery': {
         'task': 'refresh.batch_query',
         # Every minute
-        'schedule': crontab(minute="*"),
+        'schedule': crontab(minute="*/30 * * * *"),
     }
 }
