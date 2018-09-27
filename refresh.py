@@ -57,8 +57,8 @@ def batch_query():
         course_list_and_info = []
 
         for post in posts:
-            course_title = post['title']
-            course_contact = post['body']
+            course_title = post[1]
+            course_contact = post[2]
             course_term_raw = course_contact.split(',')[0]
             course_list_and_info.append((course_title, course_contact))
             course_term = '000000'
