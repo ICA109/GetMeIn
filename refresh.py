@@ -52,7 +52,12 @@ def batch_query():
             ' ORDER BY created DESC'
         ).fetchall()
 
-        print(posts)
+        # print(posts)
+        columns = [col[0] for col in cur.description]
+        rows = [dict(zip(columns, row)) for row in cur.fetchall()]
+
+        print(columns)
+        print(rows)
 
         course_list_and_info = []
 
