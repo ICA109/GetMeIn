@@ -13,6 +13,7 @@ import requests
 
 import sqlite3
 from sqlite3 import Error
+import os
 
 
 import celery_config
@@ -38,7 +39,11 @@ def create_connection(db_file):
 @app.task
 def batch_query():
     try:
-        conn = sqlite3.connect('instance.flaskr')
+        dir_path = os.path.dirname(os.path.abspath(__file__))
+        print(dir_path)
+        db_path = os.path.join(dir_path, 'instance', 'flaskr.sqlite')
+        print(db_path)
+        conn = sqlite3.connect(db_path)
         print(123)
         cur = conn.cursor()
         posts = cur.execute(
