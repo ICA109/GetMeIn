@@ -22,7 +22,8 @@ def index():
     ).fetchall()
     # check_for_updates(posts)
     # func(["http://google.com", "https://twitter.com", "https://alexa.com"])
-    batch_query(posts)
+    # batch_query(posts)
+    batch_query()
     return render_template('blog/index.html', posts=posts)
 
 
