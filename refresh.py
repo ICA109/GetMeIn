@@ -39,8 +39,10 @@ def create_connection(db_file):
 def batch_query():
     try:
         conn = sqlite3.connect('instance.flaskr')
+        print(123)
         return conn
     except Error as e:
+        print(456)
         print(e)
 
     cur = conn.cursor()
