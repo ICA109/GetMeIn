@@ -40,19 +40,14 @@ def create_connection(db_file):
 def batch_query():
     try:
         dir_path = os.path.dirname(os.path.abspath(__file__))
-        print(dir_path)
         db_path = os.path.join(dir_path, 'instance', 'flaskr.sqlite')
-        print(db_path)
         conn = sqlite3.connect(db_path)
-        print(123)
         cur = conn.cursor()
         posts = cur.execute(
             'SELECT p.id, title, body, created, author_id, username'
             ' FROM post p JOIN user u ON p.author_id = u.id'
             ' ORDER BY created DESC'
         ).fetchall()
-
-        print(posts)
 
         course_list_and_info = []
 
@@ -101,5 +96,4 @@ def batch_query():
             print('-----Sample Email End-----')
 
     except Error as e:
-        print(456)
         print(e)
